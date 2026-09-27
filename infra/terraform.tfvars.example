@@ -7,12 +7,22 @@
 #    (AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY / AWS_SESSION_TOKEN) vêm de
 #    variáveis de ambiente ou ~/.aws/credentials — nunca deste arquivo.
 #    terraform.tfvars está no .gitignore — não o commite.
-#
-# Este exemplo cobre apenas a camada raw (PRONTA). Ao construir a sua infra,
-# adicione aqui os valores das variáveis que VOCÊ declarar.
 
 # Região obrigatória do Learner Lab.
 regiao = "us-east-1"
 
 # Nome GLOBALMENTE único do bucket raw (troque SEURA pelo seu RA).
 bucket_raw_nome = "prova-bigdata-raw-SEURA"
+
+# Nome GLOBALMENTE único do bucket gold (troque SEURA pelo seu RA).
+bucket_gold_nome = "prova-bigdata-gold-SEURA"
+
+# ARN da LabRole do Learner Lab (copie de "AWS Details" / IAM > Roles > LabRole).
+labrole_arn = "arn:aws:iam::000000000000:role/LabRole"
+
+# Tags de custo padronizadas aplicadas aos recursos que suportam tags.
+tags = {
+  Projeto    = "BigDataProva"
+  Disciplina = "BigData"
+  Ambiente   = "Lab"
+}
