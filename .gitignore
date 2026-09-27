@@ -64,3 +64,4 @@ local-test/test_aluno.py
 /f
 /gold.tf
 /variables.tf
+pr_body.md
