@@ -120,3 +120,25 @@ Terraform detecta uma pequena divergencia de metadados de particao. Nao ha
 recurso faltando nem erro de apply.
 
 === FIM DA EVIDENCIA DE INFRA ===
+
+
+
+
+
+############################################################
+# LIMPEZA (terraform destroy) - CRITERIO 6
+############################################################
+
+O "terraform destroy" foi executado ao final da prova, removendo todos os
+recursos provisionados (Glue Job, DynamoDB, Glue Data Catalog + tabelas,
+buckets raw e gold via provisioner de destroy). O Athena Workgroup foi
+removido com "aws athena delete-work-group --recursive-delete-option".
+
+Verificacao pos-limpeza (nenhum recurso da prova permanece):
+  - Glue jobs...........: (vazio)
+  - DynamoDB tables.....: (vazio)
+  - Glue databases......: apenas "default" (padrao da conta)
+  - Athena workgroups...: apenas "primary" (padrao da conta)
+  - Buckets prova-bigdata-*: removidos
+
+Resultado: ambiente do Learner Lab limpo, sem consumo residual de orcamento.

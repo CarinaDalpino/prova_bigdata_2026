@@ -59,7 +59,8 @@ resource "aws_dynamodb_table" "execucoes" {
 
 # 4. Athena Workgroup
 resource "aws_athena_workgroup" "primary" {
-  name = "bigdata-wg"
+  name          = "bigdata-wg"
+  force_destroy = true
   configuration {
     result_configuration {
       output_location = "s3://${var.bucket_gold_nome}/athena-results/"
